@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/rajat-arora/TwitterEmojiBot#readme",
   "dependencies": {
+    "emojilib": "^2.2.3",
     "twitter": "^1.7.0",
-    "w3c-xmlhttprequest": "^2.1.2",
     "xmlhttprequest": "^1.8.0"
   }
 }
