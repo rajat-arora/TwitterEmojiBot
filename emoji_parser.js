@@ -10,9 +10,18 @@ emoji.translate  = function(words){
     words = words.split(/(\s+)/);
     console.log(words);
     for (var i= 0; i < words.length; i++){
-       string = string.concat(emoji.translateWord(words[i]) + " ")
+       let returnedResult = emoji.translateWord(words[i]);
+       if(returnedResult.length > 1){
+         randomNum = Math.floor((Math.random()*returnedResult.length)+0);
+         returnedResult = returnedResult[randomNum];
+       }
+       string = string.concat(returnedResult + "")
         //console.log(words[i]);
     }
+
+    if ( string == "" ){
+         string = "IDK how to convert this into emoji!!"
+       }
     return string;
 }
 
@@ -50,9 +59,11 @@ emoji.isMaybeAlreadyEmoji = function(word){
 
 emoji.giveMeAEmoji = function(word){
     let keyword = word.trim().toLowerCase();
+    let useful = [];
 
       if (!keyword || keyword === '' || keyword === 'a' || keyword === 'it' || keyword === 'is'){
-        return '';
+        useful.push('');
+        return useful;
     };
 
       // Maybe this is a plural word but the keyword is the singular?
@@ -66,22 +77,24 @@ emoji.giveMeAEmoji = function(word){
   let maybeVerbed = (word.indexOf('ing') == -1) ? '' : word.substr(0, word.length-3);
 
 
-  if (emoji.isMaybeAlreadyEmoji(word)) return word;
+  if (emoji.isMaybeAlreadyEmoji(word)){
+   useful.push(word);
+  return useful;
+  }
 
 
    // If it's "i" or "i", add some faces to it.
   if (word === 'i' || word === 'you') {
-    return '😀';
-    //return '😊';
+    useful.push('😀');
+    useful.push('😊');
   } else if (word === 'she'){
-    return '💁';
-    //for some reason IDK why osx thinks the emoji for a guy is a woman with a key _/-_-\_
+    useful.push('💁');
   } else if (word === 'he'){
-    return '💁‍♂️';
+    useful.push('💁‍♂️');
   } else if (word === 'we' || word === 'they') {
-    return '👩‍👩‍👦‍👦';
+    useful.push('👩‍👩‍👦‍👦');
   } else if (word === 'am' || word === 'is' || word === 'are') {
-    return '👉';
+    useful.push('👉');
   }
 
   // Go through all the things and find the first one that matches.
@@ -95,11 +108,11 @@ emoji.giveMeAEmoji = function(word){
         (keywords && keywords.indexOf(maybePlural) >= 0) ||
         (keywords && keywords.indexOf(maybeVerbed) >= 0) ){
           if (!(word.length <= 3 && allEmojis[emoji].category == 'flags')){
-         return allEmojis[emoji].char
+         useful.push(allEmojis[emoji].char)
           }
   } 
 }
-  return word;
+  return useful;
 
 };
 
