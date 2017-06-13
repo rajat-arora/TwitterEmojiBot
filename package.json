@@ -1,0 +1,24 @@
+{
+  "name": "twitteremojibot",
+  "version": "1.0.0",
+  "description": "A bot that converts tweets to emoji",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajat-arora/TwitterEmojiBot.git"
+  },
+  "author": "rajat arora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajat-arora/TwitterEmojiBot/issues"
+  },
+  "homepage": "https://github.com/rajat-arora/TwitterEmojiBot#readme",
+  "dependencies": {
+    "twitter": "^1.7.0",
+    "w3c-xmlhttprequest": "^2.1.2",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
