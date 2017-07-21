@@ -23,10 +23,9 @@ Twitter.stream('statuses/filter', {track: '@emojibottweet'}, function(stream) {
 
     tweeter = tweet.text.replace("@emojibottweet", "");
 
-    // calculate the random index (Math.random returns a double between 0 and 1)
     var t = emoji.translate(tweeter);
 
-    //build our reply string grabbing the string in that randomIndex we've calculated
+    //build our reply string grabbing the string 
     var reply =  t + " @" + tweet.user.screen_name ;
 
     //call the post function to tweet something
