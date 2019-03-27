@@ -2,10 +2,10 @@ var TwitterPackage = require('twitter');
 var emoji = require('./emoji_parser.js');
 
 var secret = {
-  consumer_key: 'oQ13JbOVmpHUYZbL3D6e5ktSK',
-  consumer_secret: 'HrAwClk2czUu7xrYA4RDKCwK4C9AXEFbJezqw15cmDSxtoua6a',
-  access_token_key: '874416100057985026-u7MZHa9G5QsqC8Kqp5TwPARbav0CTy9',
-  access_token_secret: 'nwXOsMOuN1pmQnyNAnIrRAk7hhaUoqnPyIog5PlJUT9xs'
+  consumer_key: '',
+  consumer_secret: '',
+  access_token_key: '',
+  access_token_secret: ''
 };
 
 var Twitter = new TwitterPackage(secret);
